@@ -8,7 +8,7 @@ Process:
   - Processor: MunkiImporter
     Arguments:
       pkg_path: "%pathname%"
-      repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+      repo_subdirectory: apps/PreForm
       pkginfo:
         name: "%NAME%-arm64"
         display_name: PreForm
