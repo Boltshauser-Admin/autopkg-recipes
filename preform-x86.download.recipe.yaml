@@ -9,9 +9,8 @@ Process:
       url: https://downloads.formlabs.com/PreForm/Release/preform.dmg
       filename: PreForm-x86.dmg
 
-  - Processor: AppDmgVersioner
+  - Processor: Versioner
     Arguments:
-      dmg_path: "%pathname%"
-      app_path: "PreForm.app"
+      input_plist_path: "%pathname%/PreForm.app/Contents/Info.plist"
 
   - Processor: EndOfCheckPhase
