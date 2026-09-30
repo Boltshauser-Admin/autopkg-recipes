@@ -5,7 +5,7 @@ Input:
   NAME: Preform
 MinimumVersion: "2.3"
 Process:
-  - Processor: com.github.jgstew.SharedProcessors/URLDownloaderPython
+  - Processor: URLDownloader
     Arguments:
       url: https://downloads.formlabs.com/PreForm/Release/preform.dmg
       filename: Preform-x86.dmg
