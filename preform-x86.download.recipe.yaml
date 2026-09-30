@@ -12,5 +12,6 @@ Process:
   - Processor: AppDmgVersioner
     Arguments:
       dmg_path: "%pathname%"
+      app_path: "PreForm.app"
 
   - Processor: EndOfCheckPhase
