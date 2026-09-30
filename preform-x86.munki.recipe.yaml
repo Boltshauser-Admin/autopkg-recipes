@@ -9,8 +9,9 @@ Process:
     Arguments:
       pkg_path: "%pathname%"
       repo_subdirectory: apps/PreForm
+      extract_icon: true
       pkginfo:
-        name: "%NAME%-x86"
+        name: "%NAME%"
         display_name: PreForm
         description: PreForm for Intel Macs
         catalogs:
