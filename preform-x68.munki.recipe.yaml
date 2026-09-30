@@ -1,14 +1,10 @@
+---
 Description: Import PreForm Intel into Munki
 Identifier: info.boltshauser.munki.PreForm-x86
+ParentRecipe: info.boltshauser.download.PreForm-x86
 Input:
   NAME: PreForm
-  MUNKI_REPO_SUBDIR: apps/PreForm
-
 Process:
-  - Processor: RecipeInput
-    Arguments:
-      RECIPE: info.boltshauser.download.PreForm-x86
-
   - Processor: MunkiImporter
     Arguments:
       pkginfo:

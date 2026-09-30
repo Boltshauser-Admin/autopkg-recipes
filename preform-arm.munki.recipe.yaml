@@ -1,14 +1,10 @@
+---
 Description: Import PreForm Apple Silicon into Munki
 Identifier: info.boltshauser.munki.PreForm-arm64
+ParentRecipe: info.boltshauser.download.PreForm-arm64
 Input:
   NAME: PreForm
-  MUNKI_REPO_SUBDIR: apps/PreForm
-
 Process:
-  - Processor: RecipeInput
-    Arguments:
-      RECIPE: info.boltshauser.download.PreForm-arm64
-
   - Processor: MunkiImporter
     Arguments:
       pkginfo:
