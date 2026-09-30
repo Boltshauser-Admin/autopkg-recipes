@@ -9,6 +9,7 @@ Process:
     Arguments:
       pkg_path: "%pathname%"
       repo_subdirectory: apps/PreForm
+      munkiimport_appname: PreForm.app
       extract_icon: true
       pkginfo:
         name: "%NAME%-arm64"
