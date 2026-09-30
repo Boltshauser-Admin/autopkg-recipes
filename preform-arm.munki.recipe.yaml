@@ -15,7 +15,6 @@ Process:
         name: "%NAME%-arm64"
         display_name: PreForm
         description: PreForm for Apple Silicon Macs
-        version: "%version%"
         catalogs:
           - office
         unattended_install: false
