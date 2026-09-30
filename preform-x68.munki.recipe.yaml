@@ -7,6 +7,8 @@ Input:
 Process:
   - Processor: MunkiImporter
     Arguments:
+      pkg_path: "%pathname%"
+      repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
       pkginfo:
         name: "%NAME%-x86"
         display_name: PreForm
