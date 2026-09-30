@@ -11,9 +11,10 @@ Process:
       repo_subdirectory: apps/PreForm
       extract_icon: true
       pkginfo:
-        name: "%NAME%"
+        name: "%NAME%-x86"
         display_name: PreForm
         description: PreForm for Intel Macs
+        version: "%version%"
         catalogs:
           - office
         unattended_install: false
