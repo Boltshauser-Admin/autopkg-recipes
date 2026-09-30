@@ -1,14 +1,16 @@
 ---
-Description: Download Preform arm64
-Identifier: info.boltshauser.download.Preform
+Description: Download PreForm Apple Silicon
+Identifier: info.boltshauser.download.PreForm-arm64
 Input:
-  NAME: Preform
-MinimumVersion: "2.3"
+  NAME: PreForm
 Process:
   - Processor: URLDownloader
     Arguments:
       url: https://downloads.formlabs.com/PreForm/Release/preform-arm64.dmg
-      filename: Preform-arm64.dmg
-      COMPUTE_HASHES: True
+      filename: PreForm-arm64.dmg
+
+  - Processor: AppDmgVersioner
+    Arguments:
+      dmg_path: "%pathname%"
 
   - Processor: EndOfCheckPhase

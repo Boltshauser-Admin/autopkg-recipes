@@ -1,14 +1,16 @@
 ---
-Description: Download Preform x86
-Identifier: info.boltshauser.download.Preform
+Description: Download PreForm Intel
+Identifier: info.boltshauser.download.PreForm-x86
 Input:
-  NAME: Preform
-MinimumVersion: "2.3"
+  NAME: PreForm
 Process:
   - Processor: URLDownloader
     Arguments:
       url: https://downloads.formlabs.com/PreForm/Release/preform.dmg
-      filename: Preform-x86.dmg
-      COMPUTE_HASHES: True
+      filename: PreForm-x86.dmg
+
+  - Processor: AppDmgVersioner
+    Arguments:
+      dmg_path: "%pathname%"
 
   - Processor: EndOfCheckPhase
