@@ -1,24 +1,29 @@
----
 Description: Import PreForm Apple Silicon into Munki
 Identifier: info.boltshauser.munki.PreForm-arm64
-ParentRecipe: info.boltshauser.download.PreForm-arm64
 Input:
   NAME: PreForm
+ParentRecipe: info.boltshauser.download.PreForm-arm64
+ParentRecipeTrustInfo:
+  non_core_processors: {}
+  parent_recipes:
+    info.boltshauser.download.PreForm-arm64:
+      git_hash: 9f13e1dfbf5ea00c148802d98c290da9bb1cbf51
+      path: ~/dev/autopkg-recipes/preform-arm64.download.recipe.yaml
+      sha256_hash: 71ce3e7c972bd6e416ef4924686abccb7f2b63ce769f6a5e8741d8f9c34d30a6
 Process:
-  - Processor: MunkiImporter
-    Arguments:
-      pkg_path: "%pathname%"
-      munkiimport_appname: PreForm.app
-      repo_subdirectory: apps/PreForm
+  - Arguments:
       extract_icon: true
+      munkiimport_appname: PreForm.app
+      pkg_path: '%pathname%'
       pkginfo:
-        name: "%NAME%-arm64"
-        display_name: PreForm
-        description: PreForm for Apple Silicon Macs
         catalogs:
           - office
-        unattended_install: false
+        description: PreForm for Apple Silicon Macs
+        display_name: PreForm
+        name: '%NAME%-arm64'
         supported_architectures:
           - arm64
-
+        unattended_install: false
+      repo_subdirectory: apps/PreForm
+    Processor: MunkiImporter
   - Processor: EndOfCheckPhase

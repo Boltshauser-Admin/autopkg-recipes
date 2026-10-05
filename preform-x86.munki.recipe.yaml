@@ -1,24 +1,29 @@
----
 Description: Import PreForm Intel into Munki
 Identifier: info.boltshauser.munki.PreForm-x86
-ParentRecipe: info.boltshauser.download.PreForm-x86
 Input:
   NAME: PreForm
+ParentRecipe: info.boltshauser.download.PreForm-x86
+ParentRecipeTrustInfo:
+  non_core_processors: {}
+  parent_recipes:
+    info.boltshauser.download.PreForm-x86:
+      git_hash: 9f13e1dfbf5ea00c148802d98c290da9bb1cbf51
+      path: ~/dev/autopkg-recipes/preform-x86.download.recipe.yaml
+      sha256_hash: 84bf4a8f052f48529eac3037b7cc8c923f29ee3aedb79ec199288ac5e80865bf
 Process:
-  - Processor: MunkiImporter
-    Arguments:
-      pkg_path: "%pathname%"
-      munkiimport_appname: PreForm.app
-      repo_subdirectory: apps/PreForm
+  - Arguments:
       extract_icon: true
+      munkiimport_appname: PreForm.app
+      pkg_path: '%pathname%'
       pkginfo:
-        name: "%NAME%-x86"
-        display_name: PreForm
-        description: PreForm for Intel Macs
         catalogs:
           - office
-        unattended_install: false
+        description: PreForm for Intel Macs
+        display_name: PreForm
+        name: '%NAME%-x86'
         supported_architectures:
           - x86_64
-
+        unattended_install: false
+      repo_subdirectory: apps/PreForm
+    Processor: MunkiImporter
   - Processor: EndOfCheckPhase
