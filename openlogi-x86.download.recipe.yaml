@@ -1,16 +1,18 @@
 ---
-Description: Download PreForm Apple Silicon
-Identifier: info.boltshauser.download.PreForm-arm64
+Description: Download OpenLogi Arm
+Identifier: info.boltshauser.download.OpenLogi-arm
 Input:
-  NAME: PreForm
+    NAME: OpenLogi
+    GITHUB_REPO: AprilNEA/OpenLogi
+    ASSET_REGEX: ".*\\-macos-arm64.dmg$"
 Process:
-  - Processor: URLDownloader
-    Arguments:
-      url: https://downloads.formlabs.com/PreForm/Release/preform-arm64.dmg
-      filename: PreForm-arm64.dmg
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
 
-  - Processor: Versioner
-    Arguments:
-      input_plist_path: "%pathname%/PreForm.app/Contents/Info.plist"
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%-arm.dmg"
 
-  - Processor: EndOfCheckPhase
+    - Processor: EndOfCheckPhase
