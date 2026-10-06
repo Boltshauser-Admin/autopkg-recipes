@@ -6,7 +6,7 @@ Input:
     NAME: OpenLogi
     pkginfo:
         name: "%NAME%"
-        display_name: OpenLogi
+        display_name: OpenLogi Logitech Driver
         description: OpenLogi for arm64
         catalogs:
             - office
