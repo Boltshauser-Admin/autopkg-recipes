@@ -1,16 +1,16 @@
 ---
-Description: Download PreForm Apple Silicon
+Description: Download PreForm Apple Arm
 Identifier: info.boltshauser.download.PreForm-arm64
 Input:
-  NAME: PreForm
+    NAME: PreForm
 Process:
-  - Processor: URLDownloader
-    Arguments:
-      url: https://downloads.formlabs.com/PreForm/Release/preform-arm64.dmg
-      filename: PreForm-arm64.dmg
+    - Processor: URLDownloader
+      Arguments:
+          url: https://downloads.formlabs.com/PreForm/Release/preform-arm64.dmg
+          filename: PreForm-arm64.dmg
 
-  - Processor: Versioner
-    Arguments:
-      input_plist_path: "%pathname%/PreForm.app/Contents/Info.plist"
+    - Processor: Versioner
+      Arguments:
+          input_plist_path: "%pathname%/PreForm.app/Contents/Info.plist"
 
-  - Processor: EndOfCheckPhase
+    - Processor: EndOfCheckPhase
