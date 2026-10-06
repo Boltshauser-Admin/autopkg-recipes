@@ -1,0 +1,24 @@
+---
+Description: Import OpenLogi x86 into Munki
+Identifier: info.boltshauser.munki.OpenLogi-x86
+ParentRecipe: info.boltshauser.download.OpenLogi-x86
+Input:
+    NAME: OpenLogi
+    pkginfo:
+        name: "%NAME%"
+        display_name: OpenLogi Logitech Driver
+        description: OpenLogi for x86
+        catalogs:
+            - office
+        unattended_install: false
+        supported_architectures:
+            - x86_64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: OpenLogi.app
+          repo_subdirectory: apps/OpenLogi
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
