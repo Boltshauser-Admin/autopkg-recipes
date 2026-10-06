@@ -4,7 +4,7 @@ Identifier: info.boltshauser.download.OpenLogi-arm
 Input:
     NAME: OpenLogi
     GITHUB_REPO: AprilNEA/OpenLogi
-    ASSET_REGEX: ".*\\-macos-arm64.dmg$"
+    ASSET_REGEX: ".*-macos-arm64\\.dmg$"
 Process:
     - Processor: GitHubReleasesInfoProvider
       Arguments:
