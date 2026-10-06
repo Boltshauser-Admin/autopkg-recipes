@@ -1,0 +1,24 @@
+---
+Description: Import OpenLogi Apple Arm into Munki
+Identifier: info.boltshauser.munki.OpenLogi-arm
+ParentRecipe: info.boltshauser.download.OpenLogi-arm
+Input:
+    NAME: OpenLogi
+    pkginfo:
+        name: "%NAME%"
+        display_name: OpenLogi
+        description: OpenLogi for arm64
+        catalogs:
+            - office
+        unattended_install: false
+        supported_architectures:
+            - arm64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: OpenLogi.app
+          repo_subdirectory: apps/OpenLogi
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
