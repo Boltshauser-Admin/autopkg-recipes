@@ -1,0 +1,24 @@
+---
+Description: Import Zed x86 into Munki
+Identifier: info.boltshauser.munki.Zed-x86
+ParentRecipe: info.boltshauser.download.Zed-x86
+Input:
+    NAME: Zed
+    pkginfo:
+        name: "%NAME%"
+        display_name: Zed Editor
+        description: Zed for x86
+        catalogs:
+            - office
+        unattended_install: false
+        supported_architectures:
+            - x86_64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: Zed.app
+          repo_subdirectory: apps/Zed
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

@@ -1,0 +1,18 @@
+---
+Description: Download Zed x86
+Identifier: info.boltshauser.download.Zed-x86
+Input:
+    NAME: Zed
+    GITHUB_REPO: zed-industries/zed
+    ASSET_REGEX: "Zed-x86_64\\.dmg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%-x86.dmg"
+
+    - Processor: EndOfCheckPhase
