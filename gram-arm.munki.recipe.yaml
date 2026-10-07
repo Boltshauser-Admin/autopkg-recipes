@@ -1,0 +1,24 @@
+---
+Description: Import Zed arm into Munki
+Identifier: info.boltshauser.munki.Zed-arm
+ParentRecipe: info.boltshauser.download.Zed-arm
+Input:
+    NAME: Zed
+    pkginfo:
+        name: "%NAME%"
+        display_name: Zed Editor
+        description: Zed for arm
+        catalogs:
+            - office
+        unattended_install: false
+        supported_architectures:
+            - arm64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: Zed.app
+          repo_subdirectory: apps/Zed
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

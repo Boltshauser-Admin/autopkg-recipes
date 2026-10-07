@@ -1,0 +1,18 @@
+---
+Description: Download Gram Arm
+Identifier: info.boltshauser.download.Gram-arm
+Input:
+    NAME: Zed
+    GITHUB_REPO: zed-industries/zed
+    ASSET_REGEX: "Zed-aarch64\\.dmg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%-arm.dmg"
+
+    - Processor: EndOfCheckPhase
