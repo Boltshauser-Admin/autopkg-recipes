@@ -1,0 +1,18 @@
+---
+Description: Download Brave Browser universal
+Identifier: info.boltshauser.download.Brave-uni
+Input:
+    NAME: Brave
+    GITHUB_REPO: brave/brave-browser
+    ASSET_REGEX: "Brave-Browser-universal\\.dmg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase

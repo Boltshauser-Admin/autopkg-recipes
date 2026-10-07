@@ -1,0 +1,22 @@
+---
+Description: Import Brave into Munki
+Identifier: info.boltshauser.munki.Brave-uni
+ParentRecipe: info.boltshauser.download.Brave-uni
+Input:
+    NAME: Brave
+    pkginfo:
+        name: "%NAME%"
+        display_name: Brave Browser
+        description: Brave Browser Universal Build
+        catalogs:
+            - office
+        unattended_install: false
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: Brave Browser.app
+          repo_subdirectory: apps/Brave
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
