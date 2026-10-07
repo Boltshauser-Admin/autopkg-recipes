@@ -18,5 +18,4 @@ Process:
           munkiimport_appname: Brave Browser.app
           repo_subdirectory: apps/Brave
           extract_icon: true
-
     - Processor: EndOfCheckPhase
