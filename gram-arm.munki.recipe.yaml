@@ -3,7 +3,7 @@ Description: Import Gram arm into Munki
 Identifier: info.boltshauser.munki.Gram-arm
 ParentRecipe: info.boltshauser.download.Gram-arm
 Input:
-    NAME: Zed
+    NAME: Gram
     pkginfo:
         name: "%NAME%"
         display_name: Gram Editor
