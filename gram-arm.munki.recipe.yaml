@@ -1,13 +1,13 @@
 ---
-Description: Import Zed arm into Munki
-Identifier: info.boltshauser.munki.Zed-arm
-ParentRecipe: info.boltshauser.download.Zed-arm
+Description: Import Gram arm into Munki
+Identifier: info.boltshauser.munki.Gram-arm
+ParentRecipe: info.boltshauser.download.Gram-arm
 Input:
     NAME: Zed
     pkginfo:
         name: "%NAME%"
-        display_name: Zed Editor
-        description: Zed for arm
+        display_name: Gram Editor
+        description: Gram for arm
         catalogs:
             - office
         unattended_install: false
@@ -17,8 +17,8 @@ Process:
     - Processor: MunkiImporter
       Arguments:
           pkg_path: "%pathname%"
-          munkiimport_appname: Zed.app
-          repo_subdirectory: apps/Zed
+          munkiimport_appname: Gram.app
+          repo_subdirectory: apps/Gram
           extract_icon: true
 
     - Processor: EndOfCheckPhase
