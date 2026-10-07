@@ -11,9 +11,7 @@ Processors:
           # Regex strictly targets the macOS package format asset
           re_pattern: '"browser_download_url":\s*"(https://codeberg\.org/[^"]+/gram-[^"]+\.dmg)"'
           result_output_var_name: url
-
     - Processor: URLDownloader
       Arguments:
           filename: "%NAME%.dmg"
-
     - Processor: EndOfCheckPhase
