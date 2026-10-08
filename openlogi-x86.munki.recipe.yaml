@@ -10,7 +10,7 @@ Input:
         description: OpenLogi for x86
         catalogs:
             - office
-        unattended_install: false
+        unattended_install: true
         supported_architectures:
             - x86_64
 Process:

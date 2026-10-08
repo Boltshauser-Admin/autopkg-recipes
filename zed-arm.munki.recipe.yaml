@@ -10,7 +10,7 @@ Input:
         description: Zed for arm
         catalogs:
             - office
-        unattended_install: false
+        unattended_install: true
         supported_architectures:
             - arm64
 Process:

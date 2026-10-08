@@ -10,7 +10,7 @@ Input:
         description: Brave Browser Universal Build
         catalogs:
             - office
-        unattended_install: false
+        unattended_install: true
 Process:
     - Processor: MunkiImporter
       Arguments:
