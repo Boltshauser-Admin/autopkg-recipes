@@ -1,0 +1,22 @@
+---
+Description: Import Fish Shell into Munki
+Identifier: info.boltshauser.munki.Fish
+ParentRecipe: info.boltshauser.download.Fish
+Input:
+    NAME: Fish
+    pkginfo:
+        name: "%NAME%"
+        display_name: Fish Shell
+        description: Fish Shell
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          # munkiimport_appname: fish
+          repo_subdirectory: apps/Fish
+          # extract_icon: true
+
+    - Processor: EndOfCheckPhase

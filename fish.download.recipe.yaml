@@ -1,0 +1,18 @@
+---
+Description: Download Fish
+Identifier: info.boltshauser.download.Fish
+Input:
+    NAME: Fish
+    GITHUB_REPO: fish-shell/fish-shell
+    ASSET_REGEX: "fish-[0-9\\.]+\\.pkg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.pkg"
+
+    - Processor: EndOfCheckPhase
