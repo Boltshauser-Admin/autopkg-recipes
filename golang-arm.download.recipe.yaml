@@ -1,6 +1,6 @@
 ---
 Description: Download Zed Arm
-Identifier: net.pkpowell.download.Go-arm64
+Identifier: net.pkpowell.download.Go-arm
 Input:
     NAME: Go
 

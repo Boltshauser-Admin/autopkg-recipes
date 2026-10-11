@@ -1,7 +1,7 @@
 ---
 Description: Import Golang into Munki
-Identifier: info.boltshauser.munki.Go-arm
-ParentRecipe: info.boltshauser.download.Go-arm
+Identifier: net.pkpowell.munki.Go-arm
+ParentRecipe: net.pkpowell.download.Go-arm64
 Input:
     NAME: Go
     pkginfo:
