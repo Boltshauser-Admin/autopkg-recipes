@@ -1,0 +1,22 @@
+---
+Description: Import Golang into Munki
+Identifier: net.pkpowell.munki.Go-x86
+ParentRecipe: net.pkpowell.download.Go-x86
+Input:
+    NAME: Go
+    pkginfo:
+        name: "%NAME%"
+        display_name: Golang
+        description: Golang x86
+        catalogs:
+            - office
+        unattended_install: true
+        supported_architectures:
+            - x86_64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          repo_subdirectory: apps/Go
+
+    - Processor: EndOfCheckPhase
