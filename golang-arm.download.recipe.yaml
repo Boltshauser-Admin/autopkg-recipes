@@ -1,5 +1,5 @@
 ---
-Description: Download Zed Arm
+Description: Download Golang Arm
 Identifier: net.pkpowell.download.Go-arm
 Input:
     NAME: Go
