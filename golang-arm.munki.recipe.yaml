@@ -1,0 +1,22 @@
+---
+Description: Import Golang into Munki
+Identifier: info.boltshauser.munki.Go-arm
+ParentRecipe: info.boltshauser.download.Go-arm
+Input:
+    NAME: Go
+    pkginfo:
+        name: "%NAME%"
+        display_name: Golang
+        description: Golang arm
+        catalogs:
+            - office
+        unattended_install: true
+        supported_architectures:
+            - arm64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          repo_subdirectory: apps/Go
+
+    - Processor: EndOfCheckPhase
