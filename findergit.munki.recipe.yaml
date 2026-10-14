@@ -1,0 +1,22 @@
+---
+Description: Import FinderGit into Munki
+Identifier: net.pkpowell.munki.FinderGit
+ParentRecipe: net.pkpowell.download.FinderGit
+Input:
+    NAME: FinderGit
+    pkginfo:
+        name: "%NAME%"
+        display_name: FinderGit
+        description: FinderGit - native macOS Git-aware file browser
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          # munkiimport_appname: fish
+          repo_subdirectory: apps/FinderGir
+          # extract_icon: true
+
+    - Processor: EndOfCheckPhase
