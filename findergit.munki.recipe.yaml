@@ -16,7 +16,7 @@ Process:
       Arguments:
           pkg_path: "%pathname%"
           # munkiimport_appname: fish
-          repo_subdirectory: apps/FinderGir
+          repo_subdirectory: apps/FinderGit
           # extract_icon: true
 
     - Processor: EndOfCheckPhase
