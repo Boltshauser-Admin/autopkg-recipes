@@ -1,27 +1,22 @@
 ---
-Description: Download AbaClient
-Identifier: info.boltshauser.autopkg.download.AbaClient
+Description: Download AbaClient for macOS
+Identifier: ch.abacus.autopkg.download.AbaClient
 Input:
-    NAME: AbaClient
-    DOWNLOAD_PAGE: https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/
+  NAME: AbaClient
+  DOWNLOAD_PAGE: https://downloads.abacus.ch/downloads/abaclient/
+  DOWNLOAD_BASE_URL: https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/
 
 Process:
-    - Processor: URLTextSearcher
-      Arguments:
-          re_pattern: 'https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/abaclient-([0-9.]+)\.dmg'
-          url: "%DOWNLOAD_PAGE%"
-          result_output_var_name: download_url
+  - Processor: URLTextSearcher
+    Arguments:
+      url: "%DOWNLOAD_PAGE%"
+      re_pattern: 'abaclient-([0-9.]+)\.dmg'
+      result_output_var_name: version
 
-    - Processor: URLTextSearcher
-      Arguments:
-          re_pattern: 'abaclient-([0-9.]+)\.dmg'
-          url: "%DOWNLOAD_PAGE%"
-          result_output_var_name: version
+  - Processor: URLDownloader
+    Arguments:
+      url: "%DOWNLOAD_BASE_URL%abaclient-%version%.dmg"
 
-    - Processor: URLDownloader
-      Arguments:
-          url: "%download_url%"
-
-    - Processor: EndOfCheckPhase
+  - Processor: EndOfCheckPhase
 
 MinimumVersion: "2.7"
