@@ -9,7 +9,7 @@ Input:
     MUNKI_REPO_SUBDIR: apps/abacus
     pkginfo:
         catalogs:
-            - testing
+            - office
         description: Abacus AbaClient for macOS.
         display_name: AbaClient
         name: "%NAME%"
@@ -22,19 +22,11 @@ Input:
               destination_path: /Applications
             - source_item: AbaClientManager.app
               destination_path: /Applications
-        installs:
-            - type: application
-              path: /Applications/AbaClient.app
-              CFBundleShortVersionString: "%version%"
-              version_comparison_key: CFBundleShortVersionString
-            - type: application
-              path: /Applications/AbaClientManager.app
-              CFBundleShortVersionString: "%version%"
-              version_comparison_key: CFBundleShortVersionString
+
 
 Process:
     - Processor: MunkiImporter
       Arguments:
           pkg_path: "%pathname%"
           repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
-          version_comparison_key: CFBundleShortVersionString
+#          version_comparison_key: CFBundleShortVersionString
