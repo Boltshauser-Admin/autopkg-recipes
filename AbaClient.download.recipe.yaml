@@ -3,12 +3,12 @@ Description: Download AbaClient
 Identifier: info.boltshauser.autopkg.download.AbaClient
 Input:
     NAME: AbaClient
-    DOWNLOAD_PAGE: https://downloads.abacus.ch/downloads/abaclient/
+    DOWNLOAD_PAGE: https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/
 
 Process:
     - Processor: URLTextSearcher
       Arguments:
-          re_pattern: 'https://downloads\.abacus\.ch/fileadmin/ablage/dokumente/05_abaclient/abaclient-([0-9.]+)\.dmg'
+          re_pattern: 'https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/abaclient-([0-9.]+)\.dmg'
           url: "%DOWNLOAD_PAGE%"
           result_output_var_name: download_url
 
