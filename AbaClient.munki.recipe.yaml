@@ -23,10 +23,10 @@ Input:
             - source_item: AbaClientManager.app
               destination_path: /Applications
 
-
 Process:
     - Processor: MunkiImporter
       Arguments:
           pkg_path: "%pathname%"
           repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+          extract_icon: true
 #          version_comparison_key: CFBundleShortVersionString
