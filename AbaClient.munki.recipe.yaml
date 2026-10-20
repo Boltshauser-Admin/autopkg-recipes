@@ -1,0 +1,41 @@
+---
+Description: Install AbaClient
+Identifier: info.boltshauser.autopkg.munki.AbaClient
+ParentRecipe: info.boltshauser.autopkg.download.AbaClient
+
+Input:
+    NAME: AbaClient
+    MUNKI_REPO_SUBDIR: apps/AbaClient
+    CATALOG: production
+
+Process:
+    - Processor: PkgRootCreator
+      Arguments:
+          pkgroot: "%RECIPE_CACHE_DIR%/pkgroot"
+
+    - Processor: Copier
+      Arguments:
+          source_path: "%pathname%/AbaClient.app"
+          destination_path: "%RECIPE_CACHE_DIR%/pkgroot/Applications/AbaClient.app"
+
+    - Processor: Copier
+      Arguments:
+          source_path: "%pathname%/AbaClientManager.app"
+          destination_path: "%RECIPE_CACHE_DIR%/pkgroot/Applications/AbaClientManager.app"
+
+    # - Processor: PkgCreator
+    #   Arguments:
+    #     pkg_request:
+    #       id: ch.abacus.abaclient
+    #       pkgname: '%NAME%-%version%'
+    #       pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+    #       version: '%version%'
+
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pkg_path%"
+          repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+          catalog: "%CATALOG%"
+          version_comparison_key: CFBundleVersion
+
+MinimumVersion: "2.7"
