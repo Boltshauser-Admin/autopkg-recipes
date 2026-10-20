@@ -1,41 +1,40 @@
 ---
-Description: Install AbaClient
+Description: Imports the latest AbaClient apps into Munki.
 Identifier: info.boltshauser.autopkg.munki.AbaClient
 ParentRecipe: info.boltshauser.autopkg.download.AbaClient
+MinimumVersion: "2.7"
 
 Input:
     NAME: AbaClient
-    MUNKI_REPO_SUBDIR: apps/AbaClient
-    CATALOG: production
+    MUNKI_REPO_SUBDIR: apps/abacus
+    pkginfo:
+        catalogs:
+            - testing
+        description: Abacus AbaClient for macOS.
+        display_name: AbaClient
+        name: "%NAME%"
+        category: Business
+        developer: Abacus Research AG
+        unattended_install: false
+        installer_type: copy_from_dmg
+        items_to_copy:
+            - source_item: AbaClient.app
+              destination_path: /Applications
+            - source_item: AbaClientManager.app
+              destination_path: /Applications
+        installs:
+            - type: application
+              path: /Applications/AbaClient.app
+              CFBundleShortVersionString: "%version%"
+              version_comparison_key: CFBundleShortVersionString
+            - type: application
+              path: /Applications/AbaClientManager.app
+              CFBundleShortVersionString: "%version%"
+              version_comparison_key: CFBundleShortVersionString
 
 Process:
-    - Processor: PkgRootCreator
-      Arguments:
-          pkgroot: "%RECIPE_CACHE_DIR%/pkgroot"
-
-    - Processor: Copier
-      Arguments:
-          source_path: "%pathname%/AbaClient.app"
-          destination_path: "%RECIPE_CACHE_DIR%/pkgroot/Applications/AbaClient.app"
-
-    - Processor: Copier
-      Arguments:
-          source_path: "%pathname%/AbaClientManager.app"
-          destination_path: "%RECIPE_CACHE_DIR%/pkgroot/Applications/AbaClientManager.app"
-
-    # - Processor: PkgCreator
-    #   Arguments:
-    #     pkg_request:
-    #       id: ch.abacus.abaclient
-    #       pkgname: '%NAME%-%version%'
-    #       pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
-    #       version: '%version%'
-
     - Processor: MunkiImporter
       Arguments:
-          pkg_path: "%pkg_path%"
+          pkg_path: "%pathname%"
           repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
-          catalog: "%CATALOG%"
-          version_comparison_key: CFBundleVersion
-
-MinimumVersion: "2.7"
+          version_comparison_key: CFBundleShortVersionString
