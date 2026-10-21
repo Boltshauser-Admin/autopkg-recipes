@@ -1,0 +1,22 @@
+---
+Description: Import VectorCraft into Munki
+Identifier: info.boltshauser.munki.VectorCraft
+ParentRecipe: info.boltshauser.download.VectorCraft
+Input:
+    NAME: VectorCraft
+    pkginfo:
+        name: "%NAME%"
+        display_name: VectorCraft
+        description: VectorCraft
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: VectorCraft.app
+          repo_subdirectory: apps/VectorCraft
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

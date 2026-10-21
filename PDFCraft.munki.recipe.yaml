@@ -1,0 +1,22 @@
+---
+Description: Import PDFCraft into Munki
+Identifier: info.boltshauser.munki.PDFCraft
+ParentRecipe: info.boltshauser.download.PDFCraft
+Input:
+    NAME: PDFCraft
+    pkginfo:
+        name: "%NAME%"
+        display_name: PDFCraft
+        description: PDFCraft
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: PDFCraft.app
+          repo_subdirectory: apps/PDFCraft
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

@@ -1,0 +1,18 @@
+---
+Description: Download PDFCraft
+Identifier: info.boltshauser.download.PDFCraft
+Input:
+    NAME: PDFCraft
+    GITHUB_REPO: storytold/pdfcraft
+    ASSET_REGEX: '^pdfcraft-[0-9]+(\.[0-9]+)+\-macos-universal.dmg$'
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase

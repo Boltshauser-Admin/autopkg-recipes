@@ -1,0 +1,22 @@
+---
+Description: Import DesignCraft into Munki
+Identifier: info.boltshauser.munki.DesignCraft
+ParentRecipe: info.boltshauser.download.DesignCraft
+Input:
+    NAME: DesignCraft
+    pkginfo:
+        name: "%NAME%"
+        display_name: DesignCraft
+        description: DesignCraft
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: DesignCraft.app
+          repo_subdirectory: apps/DesignCraft
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
