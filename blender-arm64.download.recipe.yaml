@@ -1,0 +1,22 @@
+---
+Description: Download Blender arm for macOS
+Identifier: info.boltshauser.autopkg.download.Blender-arm
+Input:
+    NAME: Blender
+    DOWNLOAD_PAGE: https://download.blender.org/release/
+    DOWNLOAD_BASE_URL: https://downloads.abacus.ch/fileadmin/ablage/dokumente/05_abaclient/
+
+Process:
+    - Processor: URLTextSearcher
+      Arguments:
+          url: "%DOWNLOAD_PAGE%"
+          re_pattern: '(?s)(Blender(%MAJOR_VERSION%\.\d+)/)(?!.*(Blender(%MAJOR_VERSION%\.\d+)/))'
+          result_output_var_name: version
+
+    - Processor: URLDownloader
+      Arguments:
+          url: "%DOWNLOAD_BASE_URL%abaclient-%version%.dmg"
+
+    - Processor: EndOfCheckPhase
+
+MinimumVersion: "2.7"
