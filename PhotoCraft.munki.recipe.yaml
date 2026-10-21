@@ -1,0 +1,22 @@
+---
+Description: Import PhotoCraft into Munki
+Identifier: info.boltshauser.munki.PhotoCraft
+ParentRecipe: info.boltshauser.download.PhotoCraft
+Input:
+    NAME: PhotoCraft
+    pkginfo:
+        name: "%NAME%"
+        display_name: PhotoCraft
+        description: PhotoCraft
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: PhotoCraft.app
+          repo_subdirectory: apps/PhotoCraft
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

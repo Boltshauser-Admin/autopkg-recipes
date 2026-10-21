@@ -1,0 +1,18 @@
+---
+Description: Download PhotoCraft
+Identifier: info.boltshauser.download.PhotoCraft
+Input:
+    NAME: PhotoCraft
+    GITHUB_REPO: storytold/photocraft
+    ASSET_REGEX: "photocraft-\\macos-universal.dmg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase

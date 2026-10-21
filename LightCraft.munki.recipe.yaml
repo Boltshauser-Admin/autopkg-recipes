@@ -1,0 +1,22 @@
+---
+Description: Import LightCraft into Munki
+Identifier: info.boltshauser.munki.LightCraft
+ParentRecipe: info.boltshauser.download.LightCraft
+Input:
+    NAME: LightCraft
+    pkginfo:
+        name: "%NAME%"
+        display_name: LightCraft
+        description: LightCraft
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: LightCraft.app
+          repo_subdirectory: apps/LightCraft
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
