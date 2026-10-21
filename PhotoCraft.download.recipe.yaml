@@ -4,7 +4,7 @@ Identifier: info.boltshauser.download.PhotoCraft
 Input:
     NAME: PhotoCraft
     GITHUB_REPO: storytold/photocraft
-    ASSET_REGEX: "photocraft-\\macos-universal.dmg$"
+    ASSET_REGEX: '^photocraft-[0-9]+(\.[0-9]+)+\-macos-universal.dmg$'
 Process:
     - Processor: GitHubReleasesInfoProvider
       Arguments:
