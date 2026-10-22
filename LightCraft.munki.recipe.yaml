@@ -7,7 +7,8 @@ Input:
     pkginfo:
         name: "%NAME%"
         display_name: LightCraft
-        description: LightCraft
+        description: LightCraft - Lightroom alternative
+        developer: ArtCraft - storyteller.ai
         catalogs:
             - office
         unattended_install: true

@@ -7,7 +7,7 @@ Input:
     pkginfo:
         name: "%NAME%"
         display_name: Fish Shell
-        description: Fish Shell
+        description: Fish is a smart and user-friendly command line shell
         catalogs:
             - office
         unattended_install: true
@@ -15,8 +15,6 @@ Process:
     - Processor: MunkiImporter
       Arguments:
           pkg_path: "%pathname%"
-          # munkiimport_appname: fish
           repo_subdirectory: apps/Fish
-          # extract_icon: true
 
     - Processor: EndOfCheckPhase

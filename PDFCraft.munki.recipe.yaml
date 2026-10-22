@@ -7,7 +7,8 @@ Input:
     pkginfo:
         name: "%NAME%"
         display_name: PDFCraft
-        description: PDFCraft
+        description: PDFCraft - Acrobat alternative
+        developer: ArtCraft - storyteller.ai
         catalogs:
             - office
         unattended_install: true

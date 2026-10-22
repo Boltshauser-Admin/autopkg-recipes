@@ -7,7 +7,8 @@ Input:
     pkginfo:
         name: "%NAME%"
         display_name: DesignCraft
-        description: DesignCraft
+        description: DesignCraft - InDesign alternative
+        developer: ArtCraft - storyteller.ai
         catalogs:
             - office
         unattended_install: true

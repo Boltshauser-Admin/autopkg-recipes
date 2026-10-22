@@ -8,9 +8,11 @@ Input:
         name: "%NAME%"
         display_name: Affinity
         description: Affinity
+        developer: Canva
         catalogs:
             - office
         unattended_install: true
+        minimum_os_version: 10.15
 
 Process:
     - Processor: MunkiImporter

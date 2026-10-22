@@ -7,7 +7,7 @@ Input:
     pkginfo:
         name: "%NAME%"
         display_name: Gram Editor
-        description: Gram for arm
+        description: Gram - Zed alternative
         catalogs:
             - office
         unattended_install: true
