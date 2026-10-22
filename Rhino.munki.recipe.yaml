@@ -4,12 +4,12 @@ Identifier: net.pkpowell.munki.Rhino8
 ParentRecipe: net.pkpowell.download.Rhino8
 
 Input:
-    NAME: Rhino8
+    NAME: Rhino 8
     MUNKI_REPO_SUBDIR: apps/Rhino
     CATALOG: office
     pkginfo:
         name: "%NAME%"
-        display_name: Rhino
+        display_name: Rhino 8
         description: Rhinoceros
         developer: McNeel
         catalogs:
