@@ -1,0 +1,20 @@
+---
+Description: Import Rhino 8 into Munki
+Identifier: net.pkpowell.munki.Rhino8
+ParentRecipe: net.pkpowell.download.Rhino8
+
+Input:
+    NAME: Rhino8
+    MUNKI_REPO_SUBDIR: apps/Rhino
+    CATALOG: office
+
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: "Rhino 8.app"
+          repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+          catalog: "%CATALOG%"
+          extract_icon: true
+
+MinimumVersion: "2.7"

@@ -1,0 +1,23 @@
+---
+Description: Download Rhino 8 for macOS
+Identifier: net.pkpowell.download.Rhino8
+
+Input:
+    NAME: Rhino8
+    SPARKLE_FEED: https://files.mcneel.com/rhino/8/mac/updates/commercialUpdates.xml
+    DOWNLOAD_BASE_URL: https://files.mcneel.com/rhino/8/mac/releases/
+
+Process:
+    - Processor: URLTextSearcher
+      Arguments:
+          url: "%SPARKLE_FEED%"
+          re_pattern: 'rhino_([0-9.]+)\.dmg'
+          result_output_var_name: version
+
+    - Processor: URLDownloader
+      Arguments:
+          url: "%DOWNLOAD_BASE_URL%rhino_%version%.dmg"
+
+    - Processor: EndOfCheckPhase
+
+MinimumVersion: "2.7"
