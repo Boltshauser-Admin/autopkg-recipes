@@ -1,0 +1,23 @@
+---
+Description: Import Affinity into Munki
+Identifier: net.pkpowell.munki.Affinity
+ParentRecipe: net.pkpowell.download.Affinity
+Input:
+    NAME: Affinity
+    pkginfo:
+        name: "%NAME%"
+        display_name: Affinity
+        description: Affinity
+        catalogs:
+            - office
+        unattended_install: true
+
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: Affinity.app
+          repo_subdirectory: apps/Affinity
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase

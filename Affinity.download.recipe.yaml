@@ -1,0 +1,16 @@
+---
+Description: Download Affinity
+Identifier: net.pkpowell.download.Affinity
+Input:
+    NAME: Affinity
+Process:
+    - Processor: URLDownloader
+      Arguments:
+          url: https://downloads.affinity.studio/Affinity.dmg
+          filename: Affinity.dmg
+
+    - Processor: Versioner
+      Arguments:
+          input_plist_path: "%pathname%/Affinity.app/Contents/Info.plist"
+
+    - Processor: EndOfCheckPhase

@@ -1,0 +1,24 @@
+---
+Description: Import PreForm Apple Arm into Munki
+Identifier: info.boltshauser.munki.PreForm-arm64
+ParentRecipe: info.boltshauser.download.PreForm-arm64
+Input:
+    NAME: PreForm
+    pkginfo:
+        name: "%NAME%"
+        display_name: PreForm
+        description: PreForm for arm64
+        catalogs:
+            - office
+        unattended_install: true
+        supported_architectures:
+            - arm64
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: PreForm.app
+          repo_subdirectory: apps/PreForm
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
