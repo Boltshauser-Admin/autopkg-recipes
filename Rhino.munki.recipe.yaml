@@ -7,6 +7,14 @@ Input:
     NAME: Rhino8
     MUNKI_REPO_SUBDIR: apps/Rhino
     CATALOG: office
+    pkginfo:
+        name: "%NAME%"
+        display_name: Rhino
+        description: Rhinoceros
+        developer: McNeel
+        catalogs:
+            - office
+        # unattended_install: true
 
 Process:
     - Processor: MunkiImporter
