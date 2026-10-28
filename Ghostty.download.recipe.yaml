@@ -5,7 +5,7 @@ Input:
     NAME: Ghostty
     GITHUB_REPO: ghostty-org/ghostty
     ASSET_REGEX: '^Ghostty\.dmg$'
-    latest_only: true
+
 Process:
     - Processor: GitHubReleasesInfoProvider
       Arguments:
