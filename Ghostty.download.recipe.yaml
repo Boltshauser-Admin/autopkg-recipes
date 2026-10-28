@@ -1,19 +1,23 @@
 ---
-Description: Download Ghostty
+
+Description: Download Ghostty release
 Identifier: net.pkpowell.download.Ghostty
+MinimumVersion: '2.3'
+
 Input:
     NAME: Ghostty
-    GITHUB_REPO: ghostty-org/ghostty
-    ASSET_REGEX: '^Ghostty\.dmg$'
+    APPCAST_URL: https://release.files.ghostty.org/appcast.xml
 
 Process:
-    - Processor: GitHubReleasesInfoProvider
+    - Processor: URLTextSearcher
       Arguments:
-          github_repo: "%GITHUB_REPO%"
-          asset_regex: "%ASSET_REGEX%"
+          url: '%APPCAST_URL%'
+          re_pattern: '(?s).*<enclosure url="https://release\.files\.ghostty\.org/([^/]+)/Ghostty\.dmg"'
+          result_output_var_name: version
 
     - Processor: URLDownloader
       Arguments:
-          filename: "%NAME%.dmg"
+          url: 'https://release.files.ghostty.org/%version%/Ghostty.dmg'
+          filename: '%NAME%.dmg'
 
     - Processor: EndOfCheckPhase
