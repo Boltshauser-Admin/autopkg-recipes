@@ -1,0 +1,19 @@
+---
+Description: Download Ghostty
+Identifier: net.pkpowell.download.Ghostty
+Input:
+    NAME: Ghostty
+    GITHUB_REPO: ghostty-org/ghostty
+    ASSET_REGEX: '^Ghostty\.dmg$'
+    latest_only: true
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase

@@ -1,0 +1,23 @@
+---
+Description: Import Ghostty into Munki
+Identifier: net.pkpowell.munki.Ghostty
+ParentRecipe: net.pkpowell.download.Ghostty
+Input:
+    NAME: Ghostty
+    pkginfo:
+        name: "%NAME%"
+        display_name: Ghostty terminal
+        description: Ghostty terminal
+        catalogs:
+            - office
+        unattended_install: true
+
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: Ghostty.app
+          repo_subdirectory: apps/Ghostty
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
