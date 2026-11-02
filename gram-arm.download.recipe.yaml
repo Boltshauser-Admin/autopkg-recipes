@@ -8,7 +8,6 @@ Processors:
       Arguments:
           # Codeberg JSON API endpoint for the latest release metadata
           url: "https://codeberg.org"
-          # Regex strictly targets the macOS package format asset
           re_pattern: '"browser_download_url":\s*"(https://codeberg\.org/[^"]+/gram-[^"]+\.dmg)"'
           result_output_var_name: url
     - Processor: URLDownloader
