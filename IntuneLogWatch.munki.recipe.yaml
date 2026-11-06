@@ -1,0 +1,23 @@
+---
+Description: Import IntuneLogWatch into Munki
+Identifier: net.pkpowell.munki.IntuneLogWatch
+ParentRecipe: net.pkpowell.download.IntuneLogWatch
+Input:
+    NAME: IntuneLogWatch
+    pkginfo:
+        name: "%NAME%"
+        display_name: IntuneLogWatch
+        description: IntuneLogWatch - watch intune logs :-D
+        developer: Gil Burns
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: IntuneLogWatch.app
+          repo_subdirectory: apps/IntuneLogWatch
+          extract_icon: true
+
+    - Processor: EndOfCheckPhase
