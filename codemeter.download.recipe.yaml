@@ -18,5 +18,6 @@ Process:
       Arguments:
           url: "https://www.wibu.com/support/user/user-software/file/download/%DOWNLOAD_ID%.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0"
           filename: "%NAME%.dmg"
+          CHECK_FILESIZE_ONLY: true
 
     - Processor: EndOfCheckPhase
