@@ -16,5 +16,6 @@ Process:
       Arguments:
           pkg_path: "%pathname%"
           repo_subdirectory: apps/CodeMeter
+          extract_icon: true
 
     - Processor: EndOfCheckPhase
