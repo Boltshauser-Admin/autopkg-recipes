@@ -1,0 +1,28 @@
+---
+Description: Import Tailscale into Munki
+Identifier: info.boltshauser.munki.tailscale
+ParentRecipe: info.boltshauser.download.tailscale
+
+Input:
+    NAME: Tailscale
+    MUNKI_REPO_SUBDIR: apps/Tailscale
+    CATALOG: office
+    pkginfo:
+        name: "%NAME%"
+        display_name: Tailscale
+        description: Tailscale VPN
+        developer: Tailscale
+        catalogs:
+            - office
+        unattended_install: true
+
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+          catalog: "%CATALOG%"
+          extract_icon: true
+    - Processor: EndOfCheckPhase
+
+MinimumVersion: "2.7"

@@ -1,3 +1,4 @@
+---
 Description: Download Tailscale
 Identifier: info.boltshauser.download.tailscale
 MinimumVersion: "2.3"
