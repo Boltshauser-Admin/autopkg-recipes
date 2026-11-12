@@ -1,0 +1,20 @@
+---
+Description: Import CodeMeter into Munki
+Identifier: info.boltshauser.munki.CodeMeter
+ParentRecipe: info.boltshauser.download.CodeMeter
+Input:
+    NAME: CodeMeter
+    pkginfo:
+        name: "%NAME%"
+        display_name: CodeMeter
+        description: CodeMeter
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          repo_subdirectory: apps/CodeMeter
+
+    - Processor: EndOfCheckPhase

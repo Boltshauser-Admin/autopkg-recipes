@@ -1,0 +1,22 @@
+---
+Description: Download CodeMeter Runtime for macOS 14+
+Identifier: info.boltshauser.download.CodeMeter
+MinimumVersion: "2.3"
+
+Input:
+    NAME: CodeMeter
+    DOWNLOAD_PAGE: https://www.wibu.com/support/user/user-software.html
+
+Process:
+    - Processor: URLTextSearcher
+      Arguments:
+          url: "%DOWNLOAD_PAGE%"
+          re_pattern: '(?s)CodeMeter User Runtime for OS X, macOS.*?file/download/(\d+)\.html'
+          result_output_var_name: DOWNLOAD_ID
+
+    - Processor: URLDownloader
+      Arguments:
+          url: "https://www.wibu.com/support/user/user-software/file/download/%DOWNLOAD_ID%.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0"
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase
