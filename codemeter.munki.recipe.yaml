@@ -17,5 +17,6 @@ Process:
           pkg_path: "%pathname%"
           repo_subdirectory: apps/CodeMeter
           extract_icon: true
+          force_munki_repo_lib: true
 
     - Processor: EndOfCheckPhase
