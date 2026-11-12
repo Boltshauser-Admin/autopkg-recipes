@@ -8,24 +8,20 @@ Input:
 Process:
     - Processor: URLTextSearcher
       Arguments:
-          url: "https://pkgs.tailscale.com/stable"
-          re_pattern: '(Tailscale-(?P&lt;version&gt;[\d\.]+)-macos\.zip)'
+          url: "https://pkgs.tailscale.com/stable/?mode=json"
+          re_pattern: '"universal-package":\s*"(?P<match>Tailscale-(?P<version>[\d\.]+)-macos\.pkg)"'
 
     - Processor: URLDownloader
       Arguments:
           url: "https://pkgs.tailscale.com/stable/%match%"
-          filename: "%NAME%.zip"
-          request_headers:
-              "user-agent": "%USER_AGENT%"
+          filename: "%NAME%-%version%.pkg"
 
     - Processor: EndOfCheckPhase
 
-    - Processor: Unarchiver
-      Arguments:
-          purge_destination: true
-
     - Processor: CodeSignatureVerifier
       Arguments:
-          input_path: "%RECIPE_CACHE_DIR%/%NAME%/Tailscale.app"
-          requirement: 'anchor apple generic and identifier "io.tailscale.ipn.macsys" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = W5364U7YZB)'
-          strict_verification: true
+          input_path: "%pathname%"
+          expected_authority_names:
+              - "Developer ID Installer: Tailscale Inc. (W5364U7YZB)"
+              - "Developer ID Certification Authority"
+              - "Apple Root CA"
