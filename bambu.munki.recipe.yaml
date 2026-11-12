@@ -1,0 +1,21 @@
+---
+Description: Import BambuStudio into Munki
+Identifier: info.boltshauser.munki.BambuStudio
+ParentRecipe: info.boltshauser.download.BambuStudio
+Input:
+    NAME: BambuStudio
+    pkginfo:
+        name: "%NAME%"
+        display_name: BambuStudio
+        description: BambuStudio
+        catalogs:
+            - office
+        unattended_install: true
+Process:
+    - Processor: MunkiImporter
+      Arguments:
+          pkg_path: "%pathname%"
+          munkiimport_appname: BambuStudio.app
+          repo_subdirectory: apps/BambuStudio
+          extract_icon: true
+    - Processor: EndOfCheckPhase

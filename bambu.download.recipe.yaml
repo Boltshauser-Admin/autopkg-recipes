@@ -1,0 +1,18 @@
+---
+Description: Download BambuStudio
+Identifier: info.boltshauser.download.BambuStudio
+Input:
+    NAME: BambuStudio
+    GITHUB_REPO: bambulab/BambuStudio
+    ASSET_REGEX: "^Bambu_Studio_mac.*\\.dmg$"
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: "%GITHUB_REPO%"
+          asset_regex: "%ASSET_REGEX%"
+
+    - Processor: URLDownloader
+      Arguments:
+          filename: "%NAME%.dmg"
+
+    - Processor: EndOfCheckPhase
